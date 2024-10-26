@@ -13,7 +13,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::with('category')->get(); 
+        $events = Event::with('category')->get(); // Eager load category
 
         return response()->json([
             'message' => 'List of Events',
@@ -28,11 +28,11 @@ class EventController extends Controller
     {
         try {
             $validatedData = $request->validate([
-                'title' => 'required|string',
-                'description' => 'required|string',
-                'date' => 'required|date',
-                'location' => 'required|string',
-                'category_id' => 'required|exists:categories,id', // Ensure category_id exists
+                'title' => 'string',
+                'description' => 'string',
+                'date' => 'date',
+                'location' => 'string',
+                'category_id' => 'exists:categories,id', // Ensure category_id exists
             ]);
 
             $event = Event::create($validatedData); // Include category_id in the mass assignment
@@ -67,21 +67,34 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|string',
-            'description' => 'required|string',
-            'date' => 'required|date',
-            'location' => 'required|string',
-            'category_id' => 'required|exists:categories,id', 
-        ]);
-
-        $event->update($validatedData);
-
-        return response()->json([
-            'message' => 'Event updated successfully',
-            'event' => $event->load('category') 
-        ], 200);
+        try {
+            // Validate only the fields that are passed
+            $validatedData = $request->validate([
+                'title' => 'string',
+                'description' => 'string',
+                'date' => 'date',
+                'location' => 'string',
+                'category_id' => 'exists:categories,id',
+            ]);
+    
+            // Update the event with only the validated data
+            $event->update(array_filter($validatedData)); // array_filter to remove null values
+    
+            return response()->json([
+                'message' => 'Event updated successfully',
+                'event' => $event->load('category')
+            ], 200);
+        } catch (\Exception $e) {
+            Log::error('Error updating event: ' . $e->getMessage());
+    
+            return response()->json([
+                'error' => 'Failed to update event',
+                'message' => $e->getMessage()
+            ], 500);
+        }
     }
+    
+    
 
     /**
      * Remove the specified resource from storage.

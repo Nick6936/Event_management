@@ -1,0 +1,506 @@
+{
+	"info": {
+		"_postman_id": "d35b5c27-c9a0-4185-9774-bfa5a6ad5025",
+		"name": "Event Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34806997",
+		"_collection_link": "https://crimson-trinity-42846.postman.co/workspace/Codynn~aa61973b-dc78-4f74-8115-b834f40faaf0/collection/34806997-d35b5c27-c9a0-4185-9774-bfa5a6ad5025?action=share&source=collection_link&creator=34806997"
+	},
+	"item": [
+		{
+			"name": "Get Events",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/events",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Events",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/events?title=Rock Concert&description=Join us for an evening of live rock concert with various artists.&date=2024-11-15&location=Basundhara Park&category_id=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"events"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Rock Concert"
+						},
+						{
+							"key": "description",
+							"value": "Join us for an evening of live rock concert with various artists."
+						},
+						{
+							"key": "date",
+							"value": "2024-11-15"
+						},
+						{
+							"key": "location",
+							"value": "Basundhara Park"
+						},
+						{
+							"key": "category_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Events",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/events/1?title=Rock Concert",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"events",
+						"1"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Rock Concert"
+						},
+						{
+							"key": "description",
+							"value": "Join us for an evening of live rock concert with various artists.",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "2024-11-15",
+							"disabled": true
+						},
+						{
+							"key": "location",
+							"value": "Basundhara Park",
+							"disabled": true
+						},
+						{
+							"key": "category_id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Events",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/events/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"events",
+						"1"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Rock Concert",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "Join us for an evening of live rock concert with various artists.",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "2024-11-15",
+							"disabled": true
+						},
+						{
+							"key": "location",
+							"value": "Basundhara Park",
+							"disabled": true
+						},
+						{
+							"key": "category_id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Events by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/events/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"events",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/categories",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Categories",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/categories?name=Buffet",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"categories"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Buffet"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Categories by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/categories/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"categories",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Categories",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/categories/1?name=Updated Category",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"categories",
+						"1"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Updated Category"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Categories",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/categories/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"categories",
+						"1"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Updated Category",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAttendees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/attendees",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"attendees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Attendees by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/attendees/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"attendees",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Attendees",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/attendees?name=Kaley Dai&email=kaleydai@gmail.com&event_id=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"attendees"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Kaley Dai"
+						},
+						{
+							"key": "email",
+							"value": "kaleydai@gmail.com"
+						},
+						{
+							"key": "event_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Attendees",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/attendees/1?name=Kaley Dai",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"attendees",
+						"1"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Kaley Dai"
+						},
+						{
+							"key": "email",
+							"value": "kaleydai@gmail.com",
+							"disabled": true
+						},
+						{
+							"key": "event_id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Attendees",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/attendees/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"attendees",
+						"1"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Kaley Dai",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "kaleydai@gmail.com",
+							"disabled": true
+						},
+						{
+							"key": "event_id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

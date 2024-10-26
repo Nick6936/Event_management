@@ -66,12 +66,12 @@ class AttendeeController extends Controller
     public function update(Request $request, Attendee $attendee)
     {
         $validatedData = $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email|unique:attendees,email,' . $attendee->id,
-            'event_id' => 'required|exists:events,id',
+            'name' => 'string',
+            'email' => 'email|unique:attendees,email,' . $attendee->id,
+            'event_id' => 'exists:events,id',
         ]);
 
-        $attendee->update($validatedData);
+        $attendee->update(array_filter($validatedData));
 
         return response()->json([
             'message' => 'Attendee updated successfully',

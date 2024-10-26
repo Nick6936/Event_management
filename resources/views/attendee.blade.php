@@ -9,38 +9,36 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('event') }}">Event</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('attendee') }}">Attendee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('categories') }}">Categories</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <span class="navbar-text me-3">Welcome, {{ Auth::user()->name }}</span>
+                    <a href="{{ route('logout') }}" class="btn btn-danger">Logout</a>
+                </form>
+            </div>
+        </div>
+    </nav>
     <div class="container my-5">
         <h1 class="text-center">Attendee Management</h1>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Dashboard</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('dashboard') }}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('event') }}">Event</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('attendee') }}">Attendee</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('categories') }}">Categories</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex">
-                        <span class="navbar-text me-3">Welcome, {{ Auth::user()->name }}</span>
-                        <a href="{{ route('logout') }}" class="btn btn-danger">Logout</a>
-                    </form>
-                </div>
-            </div>
-        </nav>
-
         <!-- Add Attendee Form -->
         <div class="my-4">
             <h2>Add New Attendee</h2>
@@ -214,6 +212,7 @@
             fetchEvents();
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

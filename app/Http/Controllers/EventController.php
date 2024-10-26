@@ -39,7 +39,7 @@ class EventController extends Controller
 
             return response()->json([
                 'message' => 'New Event Added',
-                'event' => $event->load('category') // Eager load the category
+                'event' => $event->load('category'),
             ], 201);
         } catch (\Exception $e) {
             Log::error('Error adding event: ' . $e->getMessage());
@@ -68,7 +68,6 @@ class EventController extends Controller
     public function update(Request $request, Event $event)
     {
         try {
-            // Validate only the fields that are passed
             $validatedData = $request->validate([
                 'title' => 'string',
                 'description' => 'string',
@@ -77,7 +76,7 @@ class EventController extends Controller
                 'category_id' => 'exists:categories,id',
             ]);
     
-            // Update the event with only the validated data
+
             $event->update(array_filter($validatedData)); // array_filter to remove null values
     
             return response()->json([
